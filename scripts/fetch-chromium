@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mkdir -p /src
+
+cd /src
+
+fetch --nohooks chromium
+
+./src/build/install-build-deps.sh
+
+gclient sync
