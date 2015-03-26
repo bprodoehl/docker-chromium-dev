@@ -11,11 +11,9 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN echo "debconf shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
 RUN echo "debconf shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections
 
-# First, install add-apt-repository and bzip2
-RUN apt-get update
-RUN apt-get -y install software-properties-common python-software-properties \
-                       bzip2 unzip openssh-client git lib32stdc++6 lib32z1 \
-                       build-essential aptitude
+RUN apt-get update && \
+    apt-get -y install software-properties-common python-software-properties \
+                       bzip2 unzip git build-essential pkg-config aptitude dpkg
 
 # Add oracle-jdk6 to repositories
 RUN add-apt-repository ppa:webupd8team/java
