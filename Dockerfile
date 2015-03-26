@@ -32,7 +32,9 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty-updates multiverse" >> /e
 RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ trusty-updates multiverse" >> /etc/apt/sources.list
 RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
 
-RUN dpkg --add-architecture i386
+RUN dpkg --add-architecture i386 && apt-get update
+
+RUN aptitude install -y g++-arm-linux-gnueabihf
 
 RUN cd /usr/local/sbin && git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git .
 
