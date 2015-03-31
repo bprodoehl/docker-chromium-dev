@@ -22,7 +22,7 @@ RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get update
 
 # Install oracle-jdk6
-RUN apt-get -y install oracle-java6-installer
+RUN apt-get -y install oracle-java7-installer
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty multiverse" >> /etc/apt/sources.list
 RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ trusty multiverse" >> /etc/apt/sources.list
@@ -89,4 +89,4 @@ ADD scripts/fetch-webrtc /usr/local/sbin/fetch-webrtc
 ADD scripts/fetch-chromium /usr/local/sbin/fetch-chromium
 
 # Export JAVA_HOME variable
-ENV JAVA_HOME /usr/lib/jvm/java-6-oracle
+ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
