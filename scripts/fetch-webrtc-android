@@ -1,0 +1,13 @@
+#!/bin/bash
+
+mkdir -p /src
+
+cd /src
+
+export GYP_DEFINES="OS=android"
+
+fetch --nohooks webrtc_android
+
+./src/build/install-build-deps-android.sh
+
+gclient sync

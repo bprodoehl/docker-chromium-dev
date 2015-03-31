@@ -85,8 +85,9 @@ RUN apt-get install -y ca-certificates-java desktop-file-utils dosfstools \
   openjdk-7-jdk openjdk-7-jre openjdk-7-jre-headless parted policykit-1-gnome \
   sound-theme-freedesktop tzdata-java udisks2
 
-ADD scripts/fetch-webrtc /usr/local/sbin/fetch-webrtc
-ADD scripts/fetch-chromium /usr/local/sbin/fetch-chromium
+ADD scripts/fetch-chromium       /usr/local/sbin/fetch-chromium
+ADD scripts/fetch-webrtc         /usr/local/sbin/fetch-webrtc
+ADD scripts/fetch-webrtc-android /usr/local/sbin/fetch-webrtc-android
 
 # Export JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
