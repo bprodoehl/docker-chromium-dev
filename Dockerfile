@@ -85,6 +85,12 @@ RUN apt-get install -y ca-certificates-java desktop-file-utils dosfstools \
   openjdk-7-jdk openjdk-7-jre openjdk-7-jre-headless parted policykit-1-gnome \
   sound-theme-freedesktop tzdata-java udisks2
 
+# install Node.js
+ENV NODE_VERSION 0.12.4
+RUN cd /usr/local && \
+    curl -sL http://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz | \
+    tar --strip-components 1 -xz
+
 ADD scripts/fetch-chromium       /usr/local/sbin/fetch-chromium
 ADD scripts/fetch-webrtc         /usr/local/sbin/fetch-webrtc
 ADD scripts/fetch-webrtc-android /usr/local/sbin/fetch-webrtc-android
