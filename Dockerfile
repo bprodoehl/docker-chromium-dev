@@ -15,14 +15,11 @@ RUN apt-get update && \
     apt-get -y install software-properties-common python-software-properties \
                        bzip2 unzip git build-essential pkg-config aptitude dpkg
 
-# Add oracle-jdk6 to repositories
+# Add oracle-jdk to repositories
 RUN add-apt-repository ppa:webupd8team/java
 
-# Update apt
-RUN apt-get update
-
-# Install oracle-jdk6
-RUN apt-get -y install oracle-java7-installer
+# Install oracle-jdk7
+RUN apt-get update && apt-get -y install oracle-java7-installer
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty multiverse" >> /etc/apt/sources.list
 RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ trusty multiverse" >> /etc/apt/sources.list
@@ -86,7 +83,7 @@ RUN apt-get install -y ca-certificates-java desktop-file-utils dosfstools \
   sound-theme-freedesktop tzdata-java udisks2
 
 # install Node.js
-ENV NODE_VERSION 0.12.4
+ENV NODE_VERSION 4.0.0
 RUN cd /usr/local && \
     curl -sL http://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz | \
     tar --strip-components 1 -xz
