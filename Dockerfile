@@ -51,7 +51,7 @@ RUN apt-get install -y libasound2:i386 libcap2:i386 libelf-dev:i386 \
   libbrlapi0.6 libbz2-1.0 libbz2-dev libc6 libc6-dev-armhf-cross libc6-i386 \
   libcairo2 libcairo2-dev libcap-dev libcap2 libcups2 libcups2-dev \
   libcurl4-gnutls-dev libdrm-dev libelf-dev libexif-dev libexif12 libexpat1 \
-  libfontconfig1 libfreetype6 libgbm-dev libgconf2-dev libgl1-mesa-dev \
+  libffi-dev libfontconfig1 libfreetype6 libgbm-dev libgconf2-dev libgl1-mesa-dev \
   libgles2-mesa-dev libglib2.0-0 libglib2.0-dev libglu1-mesa-dev \
   libgnome-keyring-dev libgnome-keyring0 libgtk2.0-0 libgtk2.0-dev libjpeg-dev \
   libkrb5-dev libnspr4 libnspr4-dev libnss3 libnss3-dev libpam0g libpam0g-dev \
@@ -83,7 +83,7 @@ RUN apt-get install -y ca-certificates-java desktop-file-utils dosfstools \
   sound-theme-freedesktop tzdata-java udisks2
 
 # install Node.js
-ENV NODE_VERSION 4.0.0
+ENV NODE_VERSION 4.2.2
 RUN cd /usr/local && \
     curl -sL http://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz | \
     tar --strip-components 1 -xz
